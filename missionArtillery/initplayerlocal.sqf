@@ -1,4 +1,4 @@
-
+// Add action
 [
 	player,														// Object the action is attached to
 	"Artillery Barrage",													// Title of the action
@@ -17,8 +17,21 @@
 	false	
 ] call BIS_fnc_holdActionAdd;
 
+
+// Variables for the arty
 jen_artilleryAmmo = "R_230mm_HE";
 jen_artilleryCount = 5;
 jen_artilleryCooldown = 15;
 jen_artilleryIsCoolingDown = false;
 jen_artilleryBarrages = 10;
+
+// arty event
+
+["jen_artilleryFired", {
+	if !hasInterface exitwith{};
+	params ["_target"];
+	private _coords = [getPos _target] call ace_common_fnc_getMapGridFromPos;
+	private _message = format ["Artillery Requested: %1%2",_coords#0,_coords#1];
+
+	["TaskSucceeded",["",_message]] call BIS_fnc_showNotification;
+}] call CBA_fnc_addEventHandler;
