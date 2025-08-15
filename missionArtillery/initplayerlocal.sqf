@@ -1,7 +1,7 @@
 
 [
 	player,														// Object the action is attached to
-	"Hack Laptop",													// Title of the action
+	"Artillery Barrage",													// Title of the action
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
 	"isNull (laserTarget player) && jen_artilleryBarrages > 1",									// Condition for the action to be shown
@@ -19,4 +19,6 @@
 
 jen_artilleryAmmo = "R_230mm_HE";
 jen_artilleryCount = 5;
+jen_artilleryCooldown = 15;
+jen_artilleryIsCoolingDown = false;
 jen_artilleryBarrages = 10;
