@@ -1,5 +1,11 @@
 params ["_target"];
 
+jen_artilleryIsCoolingDown = true;
+
+[{
+	jen_artilleryIsCoolingDown = false;
+}, [] , jen_artilleryCooldown] call CBA_fnc_waitAndExecutre;
+
 jen_artilleryBarrages = jen_artilleryBarrages - 1;
 publicVariable "jen_artilleryBarrages";
 
@@ -16,4 +22,5 @@ for "_i" from 1 to jen_artilleryCount do {
 
  {
 	[_x] call jen_fnc_artilleryShot;
+
  } forEach _positions;
