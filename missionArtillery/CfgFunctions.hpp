@@ -5,5 +5,7 @@ class jen
         file = "functions";
         class artilleryShot {};
         class doArtillery {};
+        class getRankNumber {};
     };
+
 };
