@@ -11,7 +11,7 @@
 	{ [laserTarget player] call jen_fnc_doArtillery },							// Code executed on completion
 	{},																// Code executed on interrupted
 	[],																// Arguments passed to the scripts as _this select 3
-	6,																// Action duration in seconds
+	1,																// Action duration in seconds
 	0,																// Priority
 	false,															// Remove on completion
 	false	
@@ -24,6 +24,8 @@ jen_artilleryCount = 5;
 jen_artilleryCooldown = 15;
 jen_artilleryIsCoolingDown = false;
 jen_artilleryBarrages = 10;
+jen_artillerySpread = 50;
+jen_artilleryDelay = 2;
 
 // arty event
 
