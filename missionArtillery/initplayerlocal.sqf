@@ -30,8 +30,15 @@ jen_artilleryBarrages = 10;
 ["jen_artilleryFired", {
 	if !hasInterface exitwith{};
 	params ["_target"];
+	jen_artilleryIsCoolingDown = true;
+	jen_artilleryBarrages = jen_artilleryBarrages - 1;
+	[{
+		jen_artilleryIsCoolingDown = false;
+	}, [] , jen_artilleryCooldown] call CBA_fnc_waitAndExecute;
+
 	private _coords = [getPos _target] call ace_common_fnc_getMapGridFromPos;
 	private _message = format ["Artillery Requested: %1%2",_coords#0,_coords#1];
 
 	["TaskSucceeded",["",_message]] call BIS_fnc_showNotification;
 }] call CBA_fnc_addEventHandler;
+
