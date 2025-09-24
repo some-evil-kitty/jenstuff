@@ -1,7 +1,7 @@
 jen_reinsertCooldown = false;
 jen_reinsertDelay = 300;
 jen_beaconRespawnDelay = 120;
-jen_reinsertClass = "your_class_here";
+jen_reinsertClass = "Land_3AS_Small_Sensor";
 jen_reinsert_hasReinserted = false;
 
 ["jen_reinsertBeaconKilled",{
@@ -12,15 +12,17 @@ private _moveBeacon = ["jen_moveBeacon","Move Reinsert Beacon","",{
     [3, [], {
         [group player] call jen_fnc_moveReinsert;
     }, {}, "Moving Reinsert Beacon..."] call ace_common_fnc_progressBar
-},{(leader group player) == player}] call ace_interact_menu_fnc_createAction;
+},{!jen_reinsertCooldown && (leader group player) == player}] call ace_interact_menu_fnc_createAction;
 
-[player, 0, ["ACE_SelfActions"], _moveBeacon] call ace_interact_menu_fnc_addActionToObject;
+[player, 1, ["ACE_SelfActions"], _moveBeacon] call ace_interact_menu_fnc_addActionToObject;
 
 private _reinsert = ["jen_doReinsert","Reinsert to Beacon","",{
     [3, [], {
         [player] call jen_fnc_doReinsert;
     }, {}, "Deploying..."] call ace_common_fnc_progressBar
 },{!jen_reinsert_hasReinserted}] call ace_interact_menu_fnc_createAction;
+
+[player, 1, ["ACE_SelfActions"], _reinsert] call ace_interact_menu_fnc_addActionToObject;
 
 player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
