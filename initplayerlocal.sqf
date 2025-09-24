@@ -1,0 +1,28 @@
+jen_reinsertCooldown = false;
+jen_reinsertDelay = 300;
+jen_beaconRespawnDelay = 120;
+jen_reinsertClass = "your_class_here";
+jen_reinsert_hasReinserted = false;
+
+["jen_reinsertBeaconKilled",{
+    jen_reinsertTimer = jen_reinsertTimer + jen_beaconRespawnDelay;
+}] call CBA_fnc_addEventHandler;
+
+private _moveBeacon = ["jen_moveBeacon","Move Reinsert Beacon","",{
+    [3, [], {
+        [group player] call jen_fnc_moveReinsert;
+    }, {}, "Moving Reinsert Beacon..."] call ace_common_fnc_progressBar
+},{(leader group player) == player}] call ace_interact_menu_fnc_createAction;
+
+[player, 0, ["ACE_SelfActions"], _moveBeacon] call ace_interact_menu_fnc_addActionToObject;
+
+private _reinsert = ["jen_doReinsert","Reinsert to Beacon","",{
+    [3, [], {
+        [player] call jen_fnc_doReinsert;
+    }, {}, "Deploying..."] call ace_common_fnc_progressBar
+},{!jen_reinsert_hasReinserted}] call ace_interact_menu_fnc_createAction;
+
+player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+    jen_reinsert_hasReinserted = false;
+}];
