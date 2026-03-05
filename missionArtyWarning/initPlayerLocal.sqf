@@ -3,7 +3,7 @@ jen_artyWarning_debounce = false;
 
 addMissionEventHandler ["ArtilleryShellFired", {
     params ["_vehicle", "_weapon", "_ammo", "_gunner", "_instigator", "_artilleryTarget", "_targetPosition", "_shell"];
-    if (side _instigator getFriend side ace_player < 0.6;) exitWith {};
+    if !(side _instigator getFriend side ace_player < 0.6) exitWith {};
     private _text = "Artillery Incoming!";
     private _icon = "\a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa";
     private _colReal = [0.7,0,0,1];
