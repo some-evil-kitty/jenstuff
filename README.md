@@ -2,9 +2,11 @@ How to use:
 
 Each "module" of Jenstuff is standalone and not immediately compatible with the others. If you need to use multiple, contact Jenna and she will combine them for you if you're not confident about it.
 
-To use a module, extract the CONTENTS of the folder into your mission file, next to the mission.sqm. From there, each module will work out of the box, but there are often settings within the initplayerlocal.sqf file. The options are documented below.
+To use a module, extract the CONTENTS of the folder into your mission file, next to the mission.sqm. From there, each module will work out of the box, but there are often settings within the initplayerlocal.sqf file. The options (and descriptions of what each module does) are documented below.
 
 Artillery:
+
+Adds off-map artillery that can be called in by any squad leader with a laser designator. Squad leaders simply point their laser and hold spacebar. Only one artillery barrage can be in progress at any time and there is a cooldown between them. If the mission maker wants to start with artillery unavailable and make it available partway through a mission, set the barrage number to -1 and use a trigger to then set it to the desired number of available barrages. For instance, an objective can be to capture a satellite uplink and call in orbital barrages.
 
 jen_artilleryAmmo = "R_230mm_HE";
 Class name for the ammo used in artillery.
@@ -29,6 +31,8 @@ Delay between calling in artillery and artillery ammo being spawned.
 
 
 Reinsert:
+
+Very simple! Any squad leader can place down a beacon that newly-respawned squadmates can teleport to one time per life. There is a configurable cooldown and the beacon can be any object.
 
 jen_reinsertCooldown = false;
 Do not touch this, please.
