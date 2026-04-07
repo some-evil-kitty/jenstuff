@@ -27,7 +27,7 @@ jen_artillerySpread = 50;
 Radius of spread in meters.
 
 jen_artilleryDelay = 2;
-Delay between calling in artillery and artillery ammo being spawned.
+Delay between shots of a barrage. 
 
 
 Reinsert:
