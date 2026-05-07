@@ -5,6 +5,7 @@ private _newGroup = createGroup jen_shadowPeople_side;
 private _unit = _newGroup createUnit [jen_shadowPeople_class, _position,[], 0, "NONE"];
 
 _newGroup setCombatBehaviour "CARELESS";
+_newGroup setSpeedMode "FULL";
 
 _unit setCombatBehaviour "CARELESS";
 

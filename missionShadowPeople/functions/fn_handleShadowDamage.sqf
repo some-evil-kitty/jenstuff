@@ -1,6 +1,6 @@
 params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitPartIndex", "_instigator", "_hitPoint", "_directHit", "_context"];
 if !_directHit exitWith {0};
-if (_unit getVariable ["jen_shadowPeople_damageDebounce", false]) exitWith {};
+if (_unit getVariable ["jen_shadowPeople_damageDebounce", false]) exitWith {0};
 private _health = _unit getVariable ["jen_shadowPeople_health", 3];
 if (_context == 0) exitWith {
     _health = _health - 1;
