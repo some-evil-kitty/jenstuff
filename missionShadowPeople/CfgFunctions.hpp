@@ -3,9 +3,12 @@ class jen
     class functions
     {
         file = "functions";
-        class artilleryShot {};
-        class doArtillery {};
-        class getRankNumber {};
+        class addShadowPersonAI{};
+        class beingTargeted{};
+        class createShadowPerson{};
+        class handleShadowDamage{};
+        class hurt{};
+        class hurtEffect{};
     };
 
 };
