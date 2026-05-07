@@ -1,5 +1,8 @@
 params ["_unit", "_shadowPerson"];
 
+private _otherFriends = _unit getVariable ["jen_shadowPeople_targetingYou", []];
+_otherFriends pushBackUnique _shadowPerson;
+
 [{
     params ["_args", "_handle"];
     _args params ["_source"];
