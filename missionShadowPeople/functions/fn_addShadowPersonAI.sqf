@@ -7,6 +7,11 @@ private _slowPFH = [{
         _handle call CBA_fnc_removePerFrameHandler;
     };
     private _currentTarget = _unit getVariable ["jen_shadowPeople_currentTarget", objNull];
+    if hasInterface then {
+        _currentTarget = player;
+        _unit setVariable ["jen_shadowPeople_currentTarget", _currentTarget];
+        ["jen_shadowPeople_beingTargeted", [_currentTarget, _unit], _currentTarget] call cba_fnc_targetEvent;
+    };
     if (!(alive _currentTarget) || (lifeState _unit isEqualTo "INCAPACITATED")) then {
         private _nearTargets = allPlayers select {_unit distance _x < jen_shadowPeople_searchRadius};
         _nearTargets = _nearTargets select {!(lifeState _x isEqualTo "INCAPACITATED")};
@@ -14,8 +19,9 @@ private _slowPFH = [{
         _unit setVariable ["jen_shadowPeople_currentTarget", _currentTarget];
         ["jen_shadowPeople_beingTargeted", [_currentTarget, _unit], _currentTarget] call cba_fnc_targetEvent;
     };
+    _unit doMove (position _currentTarget);
     _unit setVariable ["jen_shadowPeople_lastPosition", getPosASL _unit];
-}, 5, [_unit]] call cba_fnc_addPerFrameHandler;
+}, 1, [_unit]] call cba_fnc_addPerFrameHandler;
 
 private _fastPFH = [{
     params ["_args", "_handle"];
@@ -25,8 +31,7 @@ private _fastPFH = [{
     };
     private _currentTarget = _unit getVariable ["jen_shadowPeople_currentTarget", objNull];
     if (!(alive _currentTarget)) exitWith {};
-    _unit doMove (position _currentTarget);
-    if (_unit distance _currentTarget < 1.5) exitWith {
+    if (_unit distance _currentTarget < 2) exitWith {
         deleteVehicle _unit;
         ["jen_shadowPeople_hurtTarget", _currentTarget, _currentTarget] call cba_fnc_targetEvent;
         _handle call CBA_fnc_removePerFrameHandler;

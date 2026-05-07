@@ -2,15 +2,14 @@ params ["_position"];
 
 private _newGroup = createGroup jen_shadowPeople_side;
 
-private _unit = createAgent [jen_shadowPeople_class, _position, [], 0, "NONE"];
-/*
+
 private _unit = _newGroup createUnit [jen_shadowPeople_class, _position,[], 0, "NONE"];
 
 _newGroup setCombatBehaviour "CARELESS";
 _newGroup setSpeedMode "FULL";
 
 _unit setCombatBehaviour "CARELESS";
-*/
+
 _unit setUnitPos "UP";
 
 _unit setAnimSpeedCoef 1.2;

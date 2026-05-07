@@ -2,6 +2,7 @@ params ["_unit", "_shadowPerson"];
 
 private _otherFriends = _unit getVariable ["jen_shadowPeople_targetingYou", []];
 _otherFriends pushBackUnique _shadowPerson;
+["jen_hideObjectLocal", [_shadowPerson, (currentVisionMode _unit != 2)]] call cba_fnc_localEvent;
 
 [{
     params ["_args", "_handle"];

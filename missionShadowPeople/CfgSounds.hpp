@@ -5,13 +5,13 @@ class CfgSounds
 	class jen_whispers
 	{
 		name = "Whispers";						// display name
-		sound[] = { "snd\whispers.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
+		sound[] = { "snd\whispers.ogg", 1, 1.5, 150 };	// file, volume, pitch, maxDistance
 		titles[] = {};			// subtitles
 	};
     class jen_heartBeat
     {
 		name = "Heartbeat";						// display name
-		sound[] = { "snd\heartbeat.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
+		sound[] = { "snd\heartbeat.wss", 1, 1, 100 };	// file, volume, pitch, maxDistance
 		titles[] = {};			// subtitles 
     }
 };
