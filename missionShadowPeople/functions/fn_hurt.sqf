@@ -4,8 +4,10 @@ params ["_unit"];
 if (_unit != player) exitWith {};
 
 
-// knock you out of thermals/nvg
+// knock you out of thermals/nvg, turns off flashlight, etc
 _unit action ["NvGogglesOff", _unit];
+_unit action ["GunLightOff", _unit];
+["KND_ToggleLamp", [_unit, false]] call CBA_fnc_globalEvent;
 
 // do pp effects
 call jen_fnc_hurtEffect;

@@ -15,7 +15,7 @@ private _slowPFH = [{
         private _otherFriends = _currentTarget getVariable ["jen_shadowPeople_targetingYou", []];
         _otherFriends = _otherFriends pushBackUnique _unit;
         _unit setVariable ["jen_shadowPeople_targetingYou", _otherFriends, true];
-        ["jen_shadowPeople_beingTargeted", _currentTarget, _currentTarget] call cba_fnc_targetEvent;
+        ["jen_shadowPeople_beingTargeted", [_currentTarget, _unit], _currentTarget] call cba_fnc_targetEvent;
     };
     _unit setVariable ["jen_shadowPeople_lastPosition", getPosASL _unit];
 }, 5, [_unit]] call cba_fnc_addPerFrameHandler;

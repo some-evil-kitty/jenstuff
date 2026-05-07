@@ -12,6 +12,11 @@ _unit setAnimSpeedCoef 1.3;
 
 _unit removeAllEventHandlers "HandleDamage";
 
+{
+    _unit setObjectTextureGlobal [_x, "#(rgb,8,8,3)color(0,0,0,1)"];
+    _unit setObjectMaterialGlobal [_x, ""];
+} forEach jen_shadowPeople_selections;
+
 [_unit, true] call ace_headless_fnc_blacklist;
 
 _unit addEventHandler ["HandleDamage", {

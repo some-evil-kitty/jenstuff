@@ -23,3 +23,6 @@ jen_shadowPeople_searchRadius = 100;
 jen_shadowPeople_side = east;
 jen_shadowPeople_class = "B_VR_Soldier_F"; //pretty sure this is right
 jen_shadowpeople_painPerHit = 0.34;
+
+private _config = configFile >> "CfgVehicles" >> jen_shadowPeople_class;
+jen_shadowPeople_selections = getArray (_config >> "HiddenSelections");

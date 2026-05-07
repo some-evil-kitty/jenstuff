@@ -11,6 +11,8 @@ class CfgFunctions {
     #include "CfgFunctions.hpp"
 };
 
+#include "CfgSounds.hpp"
+
 showMap = 1;
 
 disableChannels[] = {0,2};
