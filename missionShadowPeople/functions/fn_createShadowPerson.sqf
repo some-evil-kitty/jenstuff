@@ -2,7 +2,6 @@ params ["_position"];
 
 private _newGroup = createGroup jen_shadowPeople_side;
 
-
 private _unit = _newGroup createUnit [jen_shadowPeople_class, _position,[], 0, "NONE"];
 
 _newGroup setCombatBehaviour "CARELESS";
@@ -12,7 +11,9 @@ _unit setCombatBehaviour "CARELESS";
 
 _unit setUnitPos "UP";
 
-_unit setAnimSpeedCoef 1.2;
+_unit setAnimSpeedCoef 1.7;
+
+_unit switchmove "amovpercmstpsnonwnondnon";
 
 _unit removeAllEventHandlers "HandleDamage";
 

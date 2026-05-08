@@ -15,7 +15,7 @@
 ["jen_jetpacks_core_jetpackEvent", {
 	params ["_unit","_externalCondition","_acceleration","_resistance","_fuelCoef","_heatCoef","_coolCoef","_strafeCoef","_hoverCoef","_ascensionCoef","_jumpCoef","_fuelCapacity"];
     private _shadowPeople = _unit getVariable ["jen_shadowPeople_targetingYou", []];
-    _externalCondition = (_shadowPeople findIf {_unit distance _x < 30}) != -1;
+    _externalCondition = (_shadowPeople findIf {_unit distance _x < 30}) == -1;
     _this set [1,_externalCondition]
 }] call CBA_fnc_addEventHandler;
 

@@ -8,6 +8,9 @@ private _slowPFH = [{
     };
     private _currentTarget = _unit getVariable ["jen_shadowPeople_currentTarget", objNull];
     if hasInterface then {
+        if ((lifeState player isEqualTo "INCAPACITATED")) exitWith {
+            deleteVehicle _unit;
+        };
         _currentTarget = player;
         _unit setVariable ["jen_shadowPeople_currentTarget", _currentTarget];
         ["jen_shadowPeople_beingTargeted", [_currentTarget, _unit], _currentTarget] call cba_fnc_targetEvent;
