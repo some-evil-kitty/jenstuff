@@ -9,6 +9,12 @@ _unit action ["NvGogglesOff", _unit];
 _unit action ["GunLightOff", _unit];
 ["KND_ToggleLamp", [_unit, false]] call CBA_fnc_globalEvent;
 
+if (ace_player getvariable ["knd_lowlight_on",false]) then {
+    setAperture -1;
+    ace_player setVariable ["knd_lowlight_on",false];
+    ["knd_lowlight_switched", [false, -1]] call CBA_fnc_localEvent;
+};
+
 // do pp effects
 call jen_fnc_hurtEffect;
 
