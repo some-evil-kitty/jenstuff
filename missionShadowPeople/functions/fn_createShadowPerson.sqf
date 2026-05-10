@@ -11,15 +11,15 @@ _unit setCombatBehaviour "CARELESS";
 
 _unit setUnitPos "UP";
 
-_unit setAnimSpeedCoef 1.7;
+_unit setAnimSpeedCoef 1.5;
 
 _unit switchmove "amovpercmstpsnonwnondnon";
 
 _unit removeAllEventHandlers "HandleDamage";
 
 {
-    _unit setObjectTextureGlobal [_x, "#(argb,8,8,3)color(0,0,0,1,ca)"];
-    _unit setObjectMaterialGlobal [_x, ""];
+    _unit setObjectTextureGlobal [_x, "#(argb,8,8,3)color(0,0,0,1,co)"];
+    _unit setObjectMaterialGlobal [_x, "\a3\weapons_f\acc\data\nodiffuse.rvmat"];
 } forEach jen_shadowPeople_selections;
 
 [_unit, true] call ace_headless_fnc_blacklist;
@@ -31,4 +31,3 @@ _unit addEventHandler ["HandleDamage", {
 ["jen_hideObjectGlobal", [_unit, true]] call cba_fnc_serverEvent;
 
 [_unit] call jen_fnc_addShadowPersonAI;
-
