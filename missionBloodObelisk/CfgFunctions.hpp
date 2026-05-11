@@ -3,12 +3,11 @@ class jen
     class functions
     {
         file = "functions";
-        class addShadowPersonAI{};
-        class beingTargeted{};
-        class createShadowPerson{};
-        class handleShadowDamage{};
-        class hurt{};
-        class hurtEffect{};
+        class bleedingFeedback{};
+        class endBleeding{};
+        class initBloodObelisk{};
+        class sendBlood{};
+        class startBleeding{};
     };
 
 };

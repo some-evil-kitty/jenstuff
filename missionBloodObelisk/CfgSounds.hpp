@@ -2,16 +2,10 @@ class CfgSounds
 {
 	sounds[] = {}; // OFP required it filled, now it can be empty or absent depending on the game's version
 
-	class jen_whispers
+	class jen_bleeding
 	{
-		name = "Whispers";						// display name
-		sound[] = { "snd\whispers.ogg", 1, 1.5, 150 };	// file, volume, pitch, maxDistance
+		name = "Bleeding";						// display name
+		sound[] = { "snd\bloodFeedback.wss", 1, 1, 150 };	// file, volume, pitch, maxDistance
 		titles[] = {};			// subtitles
 	};
-    class jen_heartBeat
-    {
-		name = "Heartbeat";						// display name
-		sound[] = { "snd\heartbeat.wss", 1, 1, 100 };	// file, volume, pitch, maxDistance
-		titles[] = {};			// subtitles 
-    }
 };

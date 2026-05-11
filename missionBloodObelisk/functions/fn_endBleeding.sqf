@@ -1,5 +1,7 @@
-params ["_unit"];
+params ["_obelisk", "_unit"];
 
 if (_unit == player) then {
-    true call jen_fnc_bloodPP
+    [false] call jen_fnc_bleedingFeedback
 };
+
+
