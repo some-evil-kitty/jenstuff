@@ -1,6 +1,7 @@
 ["jen_bloodObelisk_startBleeding", jen_fnc_startBleeding] call CBA_fnc_addEventHandler;
 ["jen_bloodObelisk_sendBlood", jen_fnc_sendBlood] call cba_fnc_addEventHandler;
 ["jen_bloodObelisk_endBleeding", jen_fnc_endBleeding] call cba_fnc_addEventHandler;
+["jen_bloodObelisk_dropParticle", jen_fnc_dropParticle] call cba_fnc_addEventHandler;
 
 jen_bloodObelisk_satiationThreshold = 6;
 jen_bloodObelisk_drainRate = 0.2;
