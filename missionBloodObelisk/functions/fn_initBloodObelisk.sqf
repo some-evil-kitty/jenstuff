@@ -6,6 +6,8 @@ params ["_obelisk"];
     private _bloodEaten = _obelisk getVariable ["jen_bloodObelisk_bloodEaten", 0];
     if (_bloodEaten >= jen_bloodObelisk_satiationThreshold) exitWith {
         ["jen_bloodObelisk_obeliskSatiated", _obelisk] call cba_fnc_serverEvent;
+        ["jen_bloodObelisk_dropParticle", [_obelisk]] call cba_fnc_globalEvent;
+        playSound3D [getMissionPath "snd\obeliskFull.wss", _obelisk];
         _obelisk setVariable ["jen_bloodObelisk_isFull", true, true];
         _handle call CBA_fnc_removePerFrameHandler;
     };
