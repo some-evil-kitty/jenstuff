@@ -1,7 +1,11 @@
 params ["_activate"];
 
-if _activate then {
+if _activate == jen_bloodObelisk_feedbackActive exitWith {
 
+};
+
+if _activate then {
+    jen_bloodObelisk_feedbackActive = true;
     // pp effects
     jen_bloodObelisk_redHandle = 0;
     private _priority = 1500;
@@ -43,6 +47,7 @@ if _activate then {
         jen_bloodObelisk_feedBackSoundSource = playSound "jen_bleeding";
     }, 6.8, []] call cba_fnc_addPerFrameHandler;
 } else {
+    jen_bloodObelisk_feedbackActive = false;
     jen_bloodObelisk_redHandle ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1, 1, 1, 1],	[0.299, 0.587, 0.114, 0]];
     jen_bloodObelisk_fishEyeHandle ppEffectAdjust [0,0,0];
     jen_bloodObelisk_blurHandle ppEffectAdjust [0];
