@@ -15,7 +15,6 @@ _unit setVariable ["jen_bloodObelisk_bleedingHandle", [{
 	if ((_unit distance _obelisk > jen_bloodObelisk_maxRange) || (_obelisk getVariable ["jen_bloodObelisk_isFull", false])) exitWith {
 		_handle call CBA_fnc_removePerFrameHandler;
 		["jen_bloodObelisk_endBleeding", [_obelisk, _unit]] call cba_fnc_localEvent;
-		_unit setVariable ["jen_bloodObelisk_isBleeding", false, true];
 		if (_storedBlood > 0) then {
 			["jen_bloodObelisk_sendBlood", [_obelisk, _storedBlood], _obelisk] call cba_fnc_targetEvent;
 		};
