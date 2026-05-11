@@ -16,6 +16,7 @@ _unit setVariable ["jen_bloodObelisk_bleedingHandle", [{
 		_handle call CBA_fnc_removePerFrameHandler;
 		["jen_bloodObelisk_endBleeding", [_obelisk, _unit]] call cba_fnc_localEvent;
 		if (_storedBlood > 0) then {
+			[_unit] call ace_medical_vitals_fnc_handleunitvitals;
 			["jen_bloodObelisk_sendBlood", [_obelisk, _storedBlood], _obelisk] call cba_fnc_targetEvent;
 		};
 	};
@@ -25,6 +26,7 @@ _unit setVariable ["jen_bloodObelisk_bleedingHandle", [{
 	_unit setVariable ["ace_medical_bloodVolume", _newBlood];
 	_storedBlood = _storedBlood + _bloodLost;
 	if (_storedBlood >= jen_bloodObelisk_bloodPacketSize) exitWith {
+		[_unit] call ace_medical_vitals_fnc_handleunitvitals;
 		_unit setVariable ["jen_bloodObelisk_storedBlood",0];
 		["jen_bloodObelisk_sendBlood", [_obelisk, _storedBlood], _obelisk] call cba_fnc_targetEvent;
 	};
