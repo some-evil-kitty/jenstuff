@@ -5,7 +5,7 @@ class CfgSounds
 	class jen_whispers
 	{
 		name = "Whispers";						// display name
-		sound[] = { "snd\whispers.ogg", 1, 2, 150 };	// file, volume, pitch, maxDistance
+		sound[] = { "snd\whispers.wss", 1, 2, 150 };	// file, volume, pitch, maxDistance
 		titles[] = {};			// subtitles
 	};
 	class jen_demonScream
