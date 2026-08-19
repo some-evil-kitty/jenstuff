@@ -12,7 +12,8 @@ _unit setVariable ["jen_bloodObelisk_bleedingHandle", [{
 	params ["_args", "_handle"];
 	_args params ["_obelisk", "_unit"];
 	private _storedBlood = _unit getVariable ["jen_bloodObelisk_storedBlood", -jen_bloodObelisk_drainRate];
-	if ((_unit distance _obelisk > jen_bloodObelisk_maxRange) || (_obelisk getVariable ["jen_bloodObelisk_isFull", false])) exitWith {
+	private _currentBlood = _unit getVariable ["ace_medical_bloodVolume", 6];
+	if ((_unit distance _obelisk > jen_bloodObelisk_maxRange) || (_obelisk getVariable ["jen_bloodObelisk_isFull", false]) || (_currentBlood <= 0)) exitWith {
 		_handle call CBA_fnc_removePerFrameHandler;
 		["jen_bloodObelisk_endBleeding", [_obelisk, _unit]] call cba_fnc_localEvent;
 		if (_storedBlood > 0) then {
@@ -21,7 +22,6 @@ _unit setVariable ["jen_bloodObelisk_bleedingHandle", [{
 		};
 	};
 	private _bloodLost = jen_bloodObelisk_drainRate * diag_deltaTime;
-	private _currentBlood = _unit getVariable ["ace_medical_bloodVolume", 6];
 	private _newBlood = _currentBlood - _bloodLost;
 	_unit setVariable ["ace_medical_bloodVolume", _newBlood];
 	_storedBlood = _storedBlood + _bloodLost;
